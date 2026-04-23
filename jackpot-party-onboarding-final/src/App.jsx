@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from "react";
-import jackpotIcon from "./jackpot-party-icon.png";
 
 const CHECKLIST_STORAGE_KEY = "jackpot-party-onboarding-checklist-v1";
 
@@ -446,6 +445,7 @@ export default function App() {
   const [draftResources, setDraftResources] = useState([]);
   const [draftPeopleIds, setDraftPeopleIds] = useState([]);
   const [templateApplyUpcomingId, setTemplateApplyUpcomingId] = useState("");
+  const [iconError, setIconError] = useState(false);
 
   const signedInUser = state.people.find((p) => p.id === state.currentUserId);
   const isAdmin = signedInUser?.name === TEAM_PROCESS_OWNER_NAME || signedInUser?.level === "gm";
@@ -813,16 +813,32 @@ export default function App() {
         <aside style={{ borderRight: "1px solid rgba(255,255,255,0.10)", background: "rgba(0,0,0,0.18)", backdropFilter: "blur(16px)", padding: 20 }}>
           <div className="glass" style={{ borderRadius: 26, padding: 16 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              {!iconError ? (
               <img
-                src={jackpotIcon}
+                src={"/jackpot-party-icon.png"}
                 alt="Jackpot Party"
+                onError={() => setIconError(true)}
                 style={{
                   width: 52,
                   height: 52,
                   objectFit: "contain",
                   borderRadius: 12
                 }}
-              />              <div>
+              />
+            ) : (
+              <div style={{
+                width: 52,
+                height: 52,
+                borderRadius: 18,
+                background: "linear-gradient(135deg,#fde047,#f472b6)",
+                display: "grid",
+                placeItems: "center",
+                color: "#5f004f",
+                fontWeight: 900
+              }}>
+                JPSC
+              </div>
+            )}              <div>
                 <div style={{ fontSize: 12, letterSpacing: ".22em", textTransform: "uppercase", color: "#fde68a", fontWeight: 700 }}>Jackpot Party</div>
                 <div style={{ fontSize: 20, fontWeight: 800 }}>Onboarding Hub</div>
               </div>
