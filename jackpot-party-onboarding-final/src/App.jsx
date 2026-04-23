@@ -251,6 +251,10 @@ function AppThemeStyles() {
         border: 1px solid rgba(255,255,255,0.10);
         background: rgba(255,255,255,0.06);
         font-weight: 700;
+        color: #ffffff;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
         transition: transform .18s ease, border-color .18s ease, background .18s ease;
         cursor: pointer;
       }
