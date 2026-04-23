@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import jackpotIcon from "./jackpot-party-icon.png";
 
 const CHECKLIST_STORAGE_KEY = "jackpot-party-onboarding-checklist-v1";
 
