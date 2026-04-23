@@ -814,7 +814,7 @@ export default function App() {
           <div className="glass" style={{ borderRadius: 26, padding: 16 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
               <img
-                src="/jackpot-party-icon.png"
+                src={jackpotIcon}
                 alt="Jackpot Party"
                 style={{
                   width: 52,
@@ -822,8 +822,7 @@ export default function App() {
                   objectFit: "contain",
                   borderRadius: 12
                 }}
-              />
-              <div>
+              />              <div>
                 <div style={{ fontSize: 12, letterSpacing: ".22em", textTransform: "uppercase", color: "#fde68a", fontWeight: 700 }}>Jackpot Party</div>
                 <div style={{ fontSize: 20, fontWeight: 800 }}>Onboarding Hub</div>
               </div>
